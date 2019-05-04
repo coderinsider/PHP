@@ -1,15 +1,23 @@
 <!doctype html>
 <html lang="en">
-
+<?php 
+$pageTile = "My Blog Title";
+$dateVer  = date('his');
+$projectArr = [];
+$projectArr['csslinks'] = ['bootstrap.min', 'animate', 'style'];
+?>
 <head>
-  <title>My Blog Title</title>
+  <title><?php echo $pageTile;?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script defer src="js/lib/fontawesome-all.min.js"></script>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Bootstrap 4 Layouts</title>
+  <?php
+  foreach($projectArr['csslinks'] as $csslink) {
+  ?>
+  <link rel="stylesheet" href="css/<?php echo $csslink; ?>.css?ver=<?php echo $dateVer; ?>">
+  <?php 
+  }
+  ?>
+  <script defer src="js/lib/fontawesome-all.min.js?ver=<?php echo $dateVer; ?>"></script>
 </head>
 
 <body data-spy="scroll" data-target=".site-nav" data-offset="55">
